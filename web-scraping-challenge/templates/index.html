@@ -29,29 +29,32 @@
 
     <!-- Mars Images, Weather, Facts -->
     <div class="row" id="Mars Images, Weather, Facts">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h4 class="heading">Featured Mars Image</h4>
-            <div class="pull-left"><img src={{mars.featured_image}}/></div>
+            <img src={{mars.featured_image}} alt="Mars!">
         </div>
-        <table>
-            <thead>
-            <tr>
-                <th>Description</th>
-                <th>Fact</th>
-            </tr>
-            </thead>
-            <tbody>
-                {% for row in mars.fact_table %}
-                    <tr>
-                        <td>{{row[0]}}</td>
-                        <td>{{row[1]}}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        {{mars.fact_table}}
     </div>
-
-
+    <!-- Mars Hemispheres -->
+    <div class="row" id="Mars Hemispheres">
+      <h4 class="heading">Cerberus Hemisphere Enhanced</h4>
+      <img src={{mars.CerberusHemisphereEnhanced}} alt="Hemi1">
+    </div>
+    <!-- Mars Hemispheres -->
+    <div class="row" id="Mars Hemispheres">
+      <h4 class="heading">Schiaparelli Hemisphere Enhanced</h4>
+      <img src={{mars.SchiaparelliHemisphereEnhanced}} alt="Hemi2">
+    </div>
+    <!-- Mars Hemispheres -->
+    <div class="row" id="Mars Hemispheres">
+      <h4 class="heading">Syrtis Major Hemisphere Enhanced</h4>
+      <img src={{SyrtisMajorHemisphereEnhanced}} alt="Hemi3">
+    </div>
+    <!-- Mars Hemispheres -->
+    <div class="row" id="Mars Hemispheres">
+      <h4 class="heading">Valles Marineris Hemisphere Enhanced</h4>
+      <img src={{mars.VallesMarinerisHemisphereEnhanced}} alt="Hemi4">
+    </div>
   </div>
 </body>
 

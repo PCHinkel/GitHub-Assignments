@@ -96,10 +96,10 @@ def scrape():
     x = 0
     better_dict = {}
     while x < 7:
-        better_dict[betterlist[1+x].text] = "https://astrogeology.usgs.gov" + betterlist[0+x]["href"]
+        better_dict[betterlist[1+x].text] = "https://astropedia.astrogeology.usgs.gov" + betterlist[0+x]["href"].replace("/search/map/", "/download/") + ".tif/full.jpg"
         x = x + 2
 
-    dict_return = {"article_title" : title, "article_description" : description, "featured_image" : imageurl, "weather_report" : mars_weather, "fact_table" : html_facts, "hemispheres" : better_dict}
+    dict_return = {"article_title" : title, "article_description" : description, "featured_image" : imageurl, "weather_report" : mars_weather, "fact_table" : html_facts, "hemispheres" : better_dict, "CerberusHemisphereEnhanced" : better_dict['Cerberus Hemisphere Enhanced'], "SchiaparelliHemisphereEnhanced" : better_dict['Schiaparelli Hemisphere Enhanced'], "SyrtisMajorHemisphereEnhanced" : better_dict['Syrtis Major Hemisphere Enhanced'], "VallesMarinerisHemisphereEnhanced" : better_dict['Valles Marineris Hemisphere Enhanced']}
 
     return dict_return
 

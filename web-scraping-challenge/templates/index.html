@@ -27,13 +27,30 @@
       </div>
     </div>
 
-    <!-- Mars News -->
-    <div class="row" id="Mars News">
+    <!-- Mars Images, Weather, Facts -->
+    <div class="row" id="Mars Images, Weather, Facts">
         <div class="col-md-6">
             <h4 class="heading">Featured Mars Image</h4>
             <div class="pull-left"><img src={{mars.featured_image}}/></div>
         </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Description</th>
+                <th>Fact</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for row in mars.fact_table %}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+
 
   </div>
 </body>

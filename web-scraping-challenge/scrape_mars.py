@@ -1,5 +1,5 @@
 # scrape_mars.py by Preston Hinkel
-
+import time
 import pandas as pd
 import requests
 import json
@@ -19,6 +19,7 @@ def scrape():
     # Giving the web path to the site we are scraping
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
     browser.visit(url)
+    time.sleep(2)
     # Iterate through all pages
     html = browser.html
     soup = BeautifulSoup(html, 'lxml')
@@ -35,6 +36,7 @@ def scrape():
     # Giving the web path to the site we are scraping
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
+    time.sleep(2)
     # Iterate through all pages
     html = browser.html
     soup = BeautifulSoup(html, 'html')
@@ -52,6 +54,7 @@ def scrape():
     # Giving the web path to the site we are scraping
     url = 'https://space-facts.com/mars/'
     browser.visit(url)
+    time.sleep(2)
     # Iterate through all pages
     html = browser.html
     soup = BeautifulSoup(html, 'html')
@@ -75,6 +78,7 @@ def scrape():
     # Giving the web path to the site we are scraping
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
+    time.sleep(2)
     # Iterate through all pages
     html = browser.html
     soup = BeautifulSoup(html, 'html')
@@ -92,7 +96,7 @@ def scrape():
     x = 0
     better_dict = {}
     while x < 7:
-        better_dict["https://astrogeology.usgs.gov" + betterlist[0+x]["href"]] = betterlist[1+x].text
+        better_dict[betterlist[1+x].text] = "https://astrogeology.usgs.gov" + betterlist[0+x]["href"]
         x = x + 2
 
     dict_return = {"article_title" : title, "article_description" : description, "featured_image" : imageurl, "weather_report" : mars_weather, "fact_table" : html_facts, "hemispheres" : better_dict}
